@@ -18,4 +18,18 @@ class MyCircularQueue():
             self.tail = (self.tail + 1) % self.k
             self.queue[self.tail] = data
 
+    def dequeue(self):
+        if (self.head == -1):
+            print("The circular queue is empty\n")
+
+        elif (self.head == self.tail):
+            temp = self.queue[self.head]
+            self.head = -1
+            self.tail = -1
+            return temp
+        else: 
+            temp = self.queue[self.head]
+            self.head = (self.head + 1) % self.k
+            return temp
+
             
