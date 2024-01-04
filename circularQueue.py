@@ -31,5 +31,32 @@ class MyCircularQueue():
             temp = self.queue[self.head]
             self.head = (self.head + 1) % self.k
             return temp
+        
+    def printCQueue(self):
+        if(self.head):
+            print("No element in the circular queue")
 
+        elif(self.tail >= self.head):
+            for i in range(self.head, self.tail + 1):
+                print(self.queue[i], end=" ")
+            print()
+        else:
+            for i in range(self.head, self.k):
+                print(self.queue[i], end=" ")
+            for i in range(0, self.tail + 1):
+                print(self.queue[i], end=" ") 
+            print()
+
+obj = MyCircularQueue(5)
+obj.enqueue(1)
+obj.enqueue(2)
+obj.enqueue(3)
+obj.enqueue(4)
+obj.enqueue(5)
+print("Initial queue")
+obj.printCQueue()
+
+obj.dequeue()
+print("After removing an element from the queue")
+obj.printCQueue()
             
